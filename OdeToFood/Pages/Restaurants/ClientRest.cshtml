@@ -1,0 +1,24 @@
+﻿@page
+@model OdeToFood.Pages.Restaurants.ClientRest
+
+@{
+    ViewData["title"] ="Client restaurant";
+}
+<h2>Client Restaurant</h2>
+
+@section Scripts
+{
+    <environment include="Development">
+        
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css"/>
+         
+        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
+    </environment>
+    
+    <script >
+        $.ajax("/api/restaurants/",{method:"get"})
+        .then(function(res){ console.dir(res)});
+    </script>
+}

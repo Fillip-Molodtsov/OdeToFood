@@ -1,0 +1,38 @@
+﻿@page
+@model OdeToFood.Pages.Restaurants.List
+
+@{
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div>
+    <h1>Restaurants</h1>
+    <form>
+        <div class="input-group">
+            <input type="search" class="form-control" asp-for="SearchQuery">
+            <span class="input-group-btn">
+                <button class="btn btn-default">
+                    <i class="glyphicon glyphicon-search"></i>
+                </button>
+            </span>
+        </div>
+    </form>
+    <br>
+    @foreach (var rest in Model.Restaurants)
+    {
+        <partial name="_Summary" model="rest"/>
+    }
+           
+    <a asp-page="./Edit" class="btn btn-primary">Add new</a>
+    @section footer{
+        <div>@Model.Message</div>
+    }
+</div>
+</body>
+</html>
